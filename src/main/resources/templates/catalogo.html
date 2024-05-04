@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <title>Catalogo</title>
+</head>
+<body>
+    <center>
+        <h1 style="color:red">IL CATALOGO</h1>
+    </center>
+    <div style="padding:15px">
+    <a class="btn btn-primary" th:href="@{/}">Home</a>
+    
+    <br> <br>
+    <a class="btn btn-secondary" th:href="@{/prodotto/nuovo}">Aggiungi Prodotto</a>
+    <br>
+    <br>
+    <table border="3">
+        <tr>
+            <th>Codice</th>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Anno Produzione</th>
+            <th>Quantità</th>
+            <th>Visualizza Prodotto</th>
+        </tr>
+        <tr th:each="p : ${prodotti}">
+            <td style="text-align: center" th:text="${p.codice}"></td> 
+            <td style="text-align: center" th:text="${p.nome}"></td> 
+            <td style="text-align: center" th:text="${p.categoria}"></td> 
+            <td style="text-align: center" th:text="${p.annoProduzione}"></td> 
+            <td style="text-align: center" th:text="${p.quantita}"></td> 
+            <td style="text-align: center" ><a class="btn btn-info" th:href="@{/prodotto/${p.codice}}">Info</a></td>
+        </tr>
+    </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css">
+    <title>Prodotto</title>
+</head>
+<body>
+    <div style="padding:15px">
+        <center>
+            <h1 style="color:green" th:text="${p.nome}"></h1>
+        </center>
+        <div>
+            <a class="btn btn-primary" th:href="@{/}">Home</a>
+        </div>
+    
+        <div style="padding:10px">
+            <div>
+                <b>Codice: </b> <p th:text="${p.codice}"></p>
+            </div>
+            <br>
+
+            <div>
+                <b>Nome: </b> <p th:text="${p.nome}"></p>
+            </div>
+            <br>
+
+            <div>
+                <b>Categoria: </b> <p th:text="${p.categoria}"></p>
+            </div>
+            <br>
+
+            <div>
+                <b>Anno Produzione: </b> <p th:text="${p.annoProduzione}"></p>
+            </div>
+            <br>
+
+            <div>
+                <b>Quantità: </b> <p th:text="${p.quantita}"></p>
+            </div>
+            <br>
+
+            <button type="button" class="btn btn-danger">Elimina prodotto</button>
+        </div>
+    </div>
+</body>
+</html>
