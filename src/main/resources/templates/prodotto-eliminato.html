@@ -8,10 +8,10 @@
 </head>
 <body>
     <div style="padding:15px">
-        <h1>PRODOTTO ELIMINATO <p th:text="${p.codice}"></p></h1>
+        <center>
+            <h1 style="color:crimson">PRODOTTO ELIMINATO <span th:text="${p.codice}"> </span> </h1>
+        </center>
         <p>Hai eliminato il seguente prodotto: <p th:text="${p.nome}"></p> </p>
-        <br>
-        <br>
         <a class="btn btn-success" th:href="@{/}">Home</a>
     </div>
     
