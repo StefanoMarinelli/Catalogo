@@ -63,8 +63,11 @@ public class ProdottoController {
     }
 
     @DeleteMapping("/prodotto/eliminato/{code}")
-    public void delete(@PathVariable("code") String code) {
-        prodottoService.deleteProduct(prodottoService.getProductByCode(code));
+    public ModelAndView delete(@PathVariable("code") String code) {
+        Optional<Prodotto> prodotto = prodottoService.getProductByCode(code);
+        prodottoService.deleteProduct(prodotto);
+
+        return new ModelAndView("prodotto-eliminato").addObject("p", prodotto.get());
     }
 
 }
