@@ -41,7 +41,7 @@
             </div>
             <br>
 
-            <button type="button" class="btn btn-danger">Elimina prodotto</button>
+            <input class="btn btn-danger" type="submit" th:action="@{'/prodotto/eliminato/' + ${p.codice} " value="elimina" >
         </div>
     </div>
 </body>

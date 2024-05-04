@@ -1,10 +1,12 @@
 package it.marconi.catalogo.controllers;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import it.marconi.catalogo.domains.Prodotto;
 import it.marconi.catalogo.services.ProdottoService;
@@ -39,11 +42,11 @@ public class ProdottoController {
     }
 
     @PostMapping("/prodotto/view")
-    public ModelAndView handleNewProduct(@ModelAttribute Prodotto p) {
+    public ModelAndView handleNewProduct(@ModelAttribute Prodotto prodotto) {
 
-        prodottoService.addProduct(p);
+        prodottoService.addProduct(prodotto);
 
-        String code = p.getCodice();
+        String code = prodotto.getCodice();
 
         return new ModelAndView("redirect:/prodotto/" + code);
     }
@@ -57,6 +60,11 @@ public class ProdottoController {
         } else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Prodotto non trovato");
         }
+    }
+
+    @DeleteMapping("/prodotto/eliminato/{code}")
+    public void delete(@PathVariable("code") String code) {
+        prodottoService.deleteProduct(prodottoService.getProductByCode(code));
     }
 
 }

@@ -32,7 +32,7 @@
             <td style="text-align: center" th:text="${p.categoria}"></td> 
             <td style="text-align: center" th:text="${p.annoProduzione}"></td> 
             <td style="text-align: center" th:text="${p.quantita}"></td> 
-            <td style="text-align: center" ><a class="btn btn-info" th:href="@{/prodotto/${p.codice}}">Info</a></td>
+            <td style="text-align: center" ><a class="btn btn-info" th:href="@{'/prodotto/' + ${p.codice}}">Info</a></td>
         </tr>
     </table>
     </div>

@@ -45,4 +45,13 @@ public class ProdottoService {
 
         return Optional.empty();
     }
+
+    /**
+     * Elimina il prodotto
+     * 
+     * @param p Il prodotto
+     */
+    public void deleteProduct(Optional<Prodotto> p) {
+        prodotti.remove(p);
+    }
 }
