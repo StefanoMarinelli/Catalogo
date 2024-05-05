@@ -62,7 +62,7 @@ public class ProdottoController {
         }
     }
 
-    @DeleteMapping("/prodotto/eliminato/{code}")
+    @GetMapping("/prodotto/eliminato/{code}")
     public ModelAndView delete(@PathVariable("code") String code) {
         Optional<Prodotto> prodotto = prodottoService.getProductByCode(code);
         prodottoService.deleteProduct(prodotto);
